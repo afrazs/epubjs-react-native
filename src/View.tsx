@@ -265,6 +265,9 @@ export function View({
                 allowFileAccessFromFileURLs
                 allowFileAccess
                 onShouldStartLoadWithRequest={(request) => {
+                  console.log('request,',request)
+                  console.log('request.mainDocumentURL',request.mainDocumentURL);
+                  console.log('request.url',request.url)
                   if (
                     !isRendering &&
                     request.mainDocumentURL &&
