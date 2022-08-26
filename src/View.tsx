@@ -271,7 +271,8 @@ export function View({
                     request.url !== request.mainDocumentURL
                   ) {
                     goToLocation(
-                      request.url.replace(request.mainDocumentURL, '')
+                      request.url.replace(request.mainDocumentURL, '').split('/')[1]
+                      //for ePub, it actually looks into directory OEBP/file.xhtml. Making it to file.xhtml only
                     );
                   }
                   return true;
