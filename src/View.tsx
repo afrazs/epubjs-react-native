@@ -254,7 +254,7 @@ export function View({
             <TouchableWithoutFeedback onPress={handleDoublePress}>
               <WebView
                 ref={book}
-                source={{ html: template, baseUrl: 'file:///' }}
+                source={{ html: template, baseUrl: 'file://' }}
                 showsVerticalScrollIndicator={false}
                 javaScriptEnabled
                 originWhitelist={['*']}
