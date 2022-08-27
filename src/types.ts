@@ -102,7 +102,7 @@ export interface ReaderProps {
    * Called once the book has a ref (useRef)
    * * @param {String} text
    */
-   onMarkAdded?:(text:String)=>void;
+   onMarkAdded?:(text:any)=>void;
   /**
    * Called once the book has a ref (useRef)
    * * @param {any} ref
