@@ -18,6 +18,7 @@ export type ViewProps = Omit<ReaderProps, 'src' | 'fileSystem'> & {
 export function View({
   template,
   onStarted = () => {},
+  onReferenceReady=()=>{},
   onReady = () => {},
   onDisplayError = () => {},
   onResized = () => {},
@@ -64,7 +65,9 @@ export function View({
     theme,
   } = useContext(ReaderContext);
   const book = useRef<WebView>(null);
-
+  const setReference = ()=>{
+    return onReferenceReady(book);
+  }
   const onMessage = (event: WebViewMessageEvent) => {
     const parsedEvent = JSON.parse(event.nativeEvent.data);
 
@@ -189,7 +192,9 @@ export function View({
   };
 
   useEffect(() => {
-    if (book.current) registerBook(book.current);
+    if (book.current) {registerBook(book.current)
+      setReference();
+    };
   }, [registerBook]);
 
   let lastTap: number | null = null;

@@ -99,6 +99,11 @@ export interface ReaderProps {
    */
   initialLocations?: ePubCfi[];
   /**
+   * Called once the book has a ref (useRef)
+   * * @param {any} ref
+   */
+  onReferenceReady?:(ref:any)=>void;
+  /**
    * Called once the book loads is started
    * @returns {void} void
    */
