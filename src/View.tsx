@@ -19,6 +19,7 @@ export function View({
   template,
   onStarted = () => {},
   onReferenceReady=()=>{},
+  onMarkAdded=()=>{},
   onReady = () => {},
   onDisplayError = () => {},
   onResized = () => {},
@@ -187,7 +188,10 @@ export function View({
 
       return onNavigationLoaded(toc);
     }
-
+    if(type==='onMarkAdded'){
+      const {results}=parsedEvent;
+      onMarkAdded(results);
+    }
     return () => {};
   };
 
