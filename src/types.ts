@@ -85,7 +85,6 @@ export interface ReaderProps {
    * Can be a `base64`, `epub`, `opf` or `binary`.
    * @param {object} src
    */
-  ref:any;
   src: string;
   /**
    * @param {ePubCfi[]} locations

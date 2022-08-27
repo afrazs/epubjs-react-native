@@ -133,6 +133,6 @@ function Reader({
   }
 
   if (!template) throw new Error('Template is not set');
-  return <View template={template} width={width} height={height} {...rest} ref={ref} />;
+  return <View template={template} width={width} height={height} {...rest} {...ref} />;
 }
 export default forwardRef(Reader);

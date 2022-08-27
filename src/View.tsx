@@ -44,8 +44,7 @@ export function View({
   renderOpeningBookComponent = () => (
     <OpeningBook width={width} height={height} />
   ),
-  ref
-}: ViewProps) {
+}: ViewProps, ref:any) {
   const {
     registerBook,
     setTotalLocations,
