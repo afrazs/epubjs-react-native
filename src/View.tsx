@@ -44,7 +44,7 @@ export function View({
   renderOpeningBookComponent = () => (
     <OpeningBook width={width} height={height} />
   ),
-}: ViewProps) {
+}: ViewProps, ref:any) {
   const {
     registerBook,
     setTotalLocations,
@@ -189,7 +189,9 @@ export function View({
   };
 
   useEffect(() => {
-    if (book.current) registerBook(book.current);
+    if (book.current) {registerBook(book.current)
+    ref=book;
+    };
   }, [registerBook]);
 
   let lastTap: number | null = null;

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, forwardRef } from 'react';
 import { LoadingFile } from './utils/LoadingFile';
 import type { ReaderProps } from './types';
 import { View } from './View';
@@ -10,7 +10,7 @@ import { getSourceName } from './utils/getPathname';
 import { SourceType } from './utils/enums/source-type.enum';
 
 // ...
-export function Reader({
+function Reader({
   src,
   width,
   height,
@@ -21,7 +21,7 @@ export function Reader({
   ),
   fileSystem: useFileSystem,
   ...rest
-}: ReaderProps) {
+}: ReaderProps, ref:any) {
   const {
     downloadFile,
     size: fileSize,
@@ -133,5 +133,6 @@ export function Reader({
   }
 
   if (!template) throw new Error('Template is not set');
-  return <View template={template} width={width} height={height} {...rest} />;
+  return <View template={template} width={width} height={height} {...rest} {...ref} />;
 }
+export default forwardRef(Reader);
