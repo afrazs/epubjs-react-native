@@ -187,9 +187,7 @@ export function View({
 
     return () => {};
   };
-  useEffect(()=>{
-    console.log('ref', ref)
-  },[])
+
   useEffect(() => {
     if (book.current) {registerBook(book.current)
     ref=book;
