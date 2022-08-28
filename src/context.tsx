@@ -552,7 +552,7 @@ function ReaderProvider({ children }: { children: React.ReactNode }) {
       setLocations,
       setIsLoading,
       setIsRendering,
-
+      addBookMark,
       goToLocation,
       goPrevious,
       goNext,
