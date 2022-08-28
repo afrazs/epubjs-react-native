@@ -71,6 +71,7 @@ export default `
             window.ReactNativeWebView.postMessage(JSON.stringify({
               type: "onReady",
               totalLocations: book.locations.total,
+              allLocations:book.locations,
               currentLocation: currentLocation,
               progress: book.locations.percentageFromCfi(currentLocation.start.cfi),
             }));

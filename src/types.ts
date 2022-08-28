@@ -123,7 +123,8 @@ export interface ReaderProps {
   onReady?: (
     totalLocations: number,
     currentLocation: Location,
-    progress: number
+    progress: number,
+    allLocations:any
   ) => void;
   /**
    * Called once book has not been displayed
