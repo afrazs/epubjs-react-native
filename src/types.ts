@@ -118,7 +118,6 @@ export interface ReaderProps {
    * @params {number} totalLocations {@link number}
    * @params {currentLocation} currentLocation {@link CurrentLocation}
    * @params {number} progress {@link number}
-   * @params {any} allLocations {@link any}
    * @returns {void} void
    */
   onReady?: (
