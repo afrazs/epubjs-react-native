@@ -19,7 +19,7 @@ export function View({
   template,
   onStarted = () => {},
   onReferenceReady=()=>{},
-  onMarkAdded=()=>{},
+  onBookMarkAdded=()=>{},
   onReady = () => {},
   onDisplayError = () => {},
   onResized = () => {},
@@ -188,9 +188,9 @@ export function View({
 
       return onNavigationLoaded(toc);
     }
-    if(type==='onMarkAdded'){
+    if(type==='onBookMarkAdded'){
       const {results}=parsedEvent;
-      onMarkAdded(results);
+      onBookMarkAdded(results);
     }
     return () => {};
   };

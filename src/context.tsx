@@ -268,7 +268,12 @@ export interface ReaderContextProps {
     className?: string,
     styles?: any
   ) => void;
-
+  /**
+   * Add Book Mark a specific cfi in the book
+   */
+  addBookMark: (
+    cfiRange: ePubCfi
+  ) => void;
   /**
    * Remove Mark a specific cfi in the book
    */
@@ -360,6 +365,7 @@ const ReaderContext = createContext<ReaderContextProps>({
   changeFontSize: () => {},
 
   addMark: () => {},
+  addBookMark: () => {},
   removeMark: () => {},
 
   setKey: () => {},
@@ -504,6 +510,27 @@ function ReaderProvider({ children }: { children: React.ReactNode }) {
     []
   );
 
+  const addBookMark = useCallback(
+    (
+      cfiRange: string
+    ) => {
+
+
+      book.current?.injectJavaScript(`(async()=>{
+        let range = await book.getRange('${cfiRange}');
+
+        text = range.commonAncestorContainer?.nextSibling?.nextSibling?.firstChild?.data?.substring(0, 200)
+        if(range){
+            window.ReactNativeWebView.postMessage(
+                JSON.stringify({ type: 'onMarkAdded', results: range.toString().substring(0, 200) })
+                );
+        }
+    })();
+  true`);
+    },
+    []
+  );
+
   const removeMark = useCallback((cfiRange: string, type: Mark) => {
     book.current?.injectJavaScript(`
       rendition.annotations.remove('${cfiRange}', '${type}'); true
@@ -558,6 +585,7 @@ function ReaderProvider({ children }: { children: React.ReactNode }) {
     }),
     [
       addMark,
+      addBookMark,
       changeFontFamily,
       changeFontSize,
       changeTheme,
