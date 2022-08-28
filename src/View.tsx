@@ -85,7 +85,7 @@ export function View({
     }
 
     if (type === 'onReady') {
-      const { totalLocations, currentLocation, progress, allLocations } = parsedEvent;
+      const { totalLocations, currentLocation, progress } = parsedEvent;
       setIsRendering(false);
       setTotalLocations(totalLocations);
       setCurrentLocation(currentLocation);
@@ -95,7 +95,7 @@ export function View({
         goToLocation(initialLocation);
       }
 
-      return onReady(totalLocations, currentLocation, progress, allLocations);
+      return onReady(totalLocations, currentLocation, progress);
     }
 
     if (type === 'onDisplayError') {
