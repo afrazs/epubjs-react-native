@@ -520,7 +520,7 @@ function ReaderProvider({ children }: { children: React.ReactNode }) {
         let range = await book.getRange('${cfiRange}');
         if(range){
             window.ReactNativeWebView.postMessage(
-                JSON.stringify({ type: 'onMarkAdded', results: range.toString().substring(0, 200) })
+                JSON.stringify({ type: 'onBookMarkAdded', results: range.toString().substring(0, 200) })
                 );
         }
     })();
