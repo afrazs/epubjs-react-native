@@ -9,6 +9,7 @@ export function useReader() {
     goToLocation,
     goPrevious,
     goNext,
+    addBookMark,
     getLocations,
     getCurrentLocation,
     search,
@@ -33,6 +34,7 @@ export function useReader() {
     goToLocation,
     goPrevious,
     goNext,
+    addBookMark,
     getLocations,
     getCurrentLocation,
     search,
@@ -56,6 +58,7 @@ export function useReader() {
     | 'goToLocation'
     | 'goPrevious'
     | 'goNext'
+    | 'addBookMark'
     | 'getLocations'
     | 'getCurrentLocation'
     | 'search'
